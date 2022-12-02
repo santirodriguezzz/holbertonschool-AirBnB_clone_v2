@@ -8,20 +8,20 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
+@app.route('/states_list')
+def states_list():
+    """Render template for states
+    """
+    states = storage.all(State)
+    sorted_states = sorted(states.values(), key=lambda state: state.name)
+    return render_template('7-states_list.html', sorted_states=sorted_states)
+
+
 @app.teardown_appcontext
-def app_teardown(exit):
+def app_teardown(arg=None):
     """Clean
     """
     storage.close()
-
-
-@app.route('/states_list')
-def states_list():
-    """Render template
-    """
-    return render_template('7-states_list.html',states=storage.all('state'))
-
-
 
 
 if __name__ == '__main__':
