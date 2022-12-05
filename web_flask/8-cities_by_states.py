@@ -7,7 +7,7 @@ from models.state import State
 
 app = Flask(__name__)
 
-"""method para unir flask app con la palntilla de html (8-cities_by_states.html)"""
+"""method para unir flask app con la palntilla de html (8-cities_by_states)"""
 
 
 @app.route("/cities_by_states", strict_slashes=False)
