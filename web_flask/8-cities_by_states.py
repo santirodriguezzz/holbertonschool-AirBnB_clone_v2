@@ -7,11 +7,13 @@ from models.state import State
 
 app = Flask(__name__)
 
+"""method para unir flask app con la palntilla de html (8-cities_by_states.html)"""
+
 
 @app.route("/cities_by_states", strict_slashes=False)
 def statelist():
     states = storage.all(State).values()
-    return render_template('8-cities_by_states.html', sta=sta)
+    return render_template('8-cities_by_states.html', states=states)
 
 
 @app.teardown_appcontext
