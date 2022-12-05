@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 """method para unir flask app con la palntilla de html (7-states_list.html)"""
 
+
 @app.route("/states_list", strict_slashes=False)
 def statelist():
     states = storage.all(State).values()
